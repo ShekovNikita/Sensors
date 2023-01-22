@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/navigation_main">
+
+    <fragment
+        android:id="@+id/all_sensors"
+        android:name="com.sheniv.sensors.fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/navigation_main"
+        android:name="com.sheniv.sensors.fragments.AccelerometerFragment"
+        android:label="fragment_accelerometer"
+        tools:layout="@layout/fragment_accelerometer" />
+    <fragment
+        android:id="@+id/allSensorsFragment"
+        android:name="com.sheniv.sensors.fragments.AllSensorsFragment"
+        android:label="fragment_all_sensors"
+        tools:layout="@layout/fragment_all_sensors" />
+</navigation>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Sensors</string>
+    <string name="vendor">Производитель:</string>
+    <string name="version">Версия:</string>
+    <string name="type">Тип:</string>
+    <string name="maxRange">Максимальный диапозон:</string>
+    <string name="resolution">Разрешающая способность:</string>
+    <string name="power">Потребляемая мощность, Вт:</string>
+    <string name="minDelay">Мин. задержка, мс:</string>
+    <string name="stringType">Тип строковый:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="all_sensors">Список</string>
+    <string name="title_main">Главная</string>
+</resources>
