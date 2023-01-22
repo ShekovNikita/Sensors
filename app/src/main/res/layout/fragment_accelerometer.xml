@@ -1,15 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.AccelerometerFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/light"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/axis_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/axis_x_title"
+        app:layout_constraintStart_toEndOf="@+id/axis_x_title"
+        app:layout_constraintTop_toTopOf="@+id/axis_x_title"
+        tools:text="2324" />
 
-</FrameLayout>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/axis_x_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Ось X:" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/axis_y_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ось Y:"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="@+id/axis_x_title"
+        app:layout_constraintTop_toBottomOf="@+id/axis_x_title" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/axis_y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/axis_y_title"
+        app:layout_constraintStart_toEndOf="@+id/axis_y_title"
+        app:layout_constraintTop_toBottomOf="@+id/axis_x_title"
+        tools:text="2324" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/axis_z_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ось Z:"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="@+id/axis_y_title"
+        app:layout_constraintTop_toBottomOf="@+id/axis_y_title" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/axis_z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/axis_z_title"
+        app:layout_constraintStart_toEndOf="@+id/axis_z_title"
+        app:layout_constraintTop_toBottomOf="@+id/axis_y_title"
+        tools:text="2324" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

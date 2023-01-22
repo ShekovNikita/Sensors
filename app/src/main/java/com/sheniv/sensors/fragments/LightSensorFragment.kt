@@ -5,33 +5,33 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.sheniv.sensors.base.BaseFragment
-import com.sheniv.sensors.databinding.FragmentAccelerometerBinding
+import com.sheniv.sensors.databinding.FragmentLightSensorBinding
 import com.sheniv.sensors.extentions.beGone
 import com.sheniv.sensors.extentions.bottomNavigationView
 import com.sheniv.sensors.extentions.sensorManager
 
-class AccelerometerFragment : BaseFragment<FragmentAccelerometerBinding>(), SensorEventListener {
+class LightSensorFragment : BaseFragment<FragmentLightSensorBinding>(), SensorEventListener {
 
-    private var mAccelerometer: Sensor? = null
+    private var mLight: Sensor? = null
 
     override fun createViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ) = FragmentAccelerometerBinding.inflate(inflater, container, false)
+    ) = FragmentLightSensorBinding.inflate(inflater, container, false)
 
-    override fun FragmentAccelerometerBinding.onBindView(savedInstanceState: Bundle?) {
+    override fun FragmentLightSensorBinding.onBindView(savedInstanceState: Bundle?) {
         bottomNavigationView.beGone()
-        mAccelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        mLight = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
     }
 
-    override fun onSensorChanged(p0: SensorEvent) {
-        with(binding){
-            axisX.text = p0.values[0].toString()
-            axisY.text = p0.values[1].toString()
-            axisZ.text = p0.values[2].toString()
+    override fun onSensorChanged(p0: SensorEvent?) {
+        if (p0 != null) {
+            binding.light.text = p0.values[0].toString()
         }
     }
 
@@ -40,7 +40,7 @@ class AccelerometerFragment : BaseFragment<FragmentAccelerometerBinding>(), Sens
 
     override fun onResume() {
         super.onResume()
-        mAccelerometer?.also {
+        mLight?.also {
             sensorManager.registerListener(this, it , SensorManager.SENSOR_DELAY_NORMAL)
         }
     }

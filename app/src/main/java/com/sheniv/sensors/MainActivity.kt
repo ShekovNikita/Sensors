@@ -11,6 +11,7 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sheniv.sensors.databinding.ActivityMainBinding
+import com.sheniv.sensors.extentions.bottomNavigationView
 import com.sheniv.sensors.extentions.sensorManager
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.hide()
-
+        bottomNavigationView = findViewById(R.id.nav_view)
         bottomNavigation()
 
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager

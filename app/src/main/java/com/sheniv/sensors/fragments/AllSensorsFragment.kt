@@ -23,4 +23,5 @@ class AllSensorsFragment : BaseFragment<FragmentAllSensorsBinding>() {
         recyclerSensor.adapter = SensorAdapter(deviceSensors)
     }
 
+
 }

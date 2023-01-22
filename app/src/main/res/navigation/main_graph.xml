@@ -6,18 +6,28 @@
     app:startDestination="@id/navigation_main">
 
     <fragment
-        android:id="@+id/all_sensors"
+        android:id="@+id/navigation_main"
         android:name="com.sheniv.sensors.fragments.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
     <fragment
-        android:id="@+id/navigation_main"
+        android:id="@+id/accelerometer"
         android:name="com.sheniv.sensors.fragments.AccelerometerFragment"
         android:label="fragment_accelerometer"
         tools:layout="@layout/fragment_accelerometer" />
     <fragment
-        android:id="@+id/allSensorsFragment"
+        android:id="@+id/navigation_all_sensors"
         android:name="com.sheniv.sensors.fragments.AllSensorsFragment"
         android:label="fragment_all_sensors"
         tools:layout="@layout/fragment_all_sensors" />
+    <fragment
+        android:id="@+id/lightSensorFragment"
+        android:name="com.sheniv.sensors.fragments.LightSensorFragment"
+        android:label="fragment_light_sensor"
+        tools:layout="@layout/fragment_light_sensor" />
+    <fragment
+        android:id="@+id/ambientTemperatureFragment"
+        android:name="com.sheniv.sensors.fragments.AmbientTemperatureFragment"
+        android:label="fragment_ambient_temperature"
+        tools:layout="@layout/fragment_ambient_temperature" />
 </navigation>
