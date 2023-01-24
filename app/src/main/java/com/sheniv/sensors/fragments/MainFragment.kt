@@ -33,6 +33,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(), ChoiceSensor {
             R.string.sensor_light -> navController.navigate(R.id.lightSensorFragment)
             R.string.sensor_accelerometer -> navController.navigate(R.id.accelerometer)
             R.string.sensor_thermometer -> navController.navigate(R.id.ambientTemperatureFragment)
+            R.string.sensor_gravity -> navController.navigate(R.id.gravityFragment)
         }
     }
 }

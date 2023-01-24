@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
+import com.sheniv.sensors.extentions.beGone
+import com.sheniv.sensors.extentions.bottomNavigationView
 
 abstract class BaseFragment<VIEW_BINDING : ViewBinding> : Fragment() {
 
@@ -34,6 +36,7 @@ abstract class BaseFragment<VIEW_BINDING : ViewBinding> : Fragment() {
         savedInstanceState: Bundle?
     ): View = createViewBinding(inflater, container).run {
         _binding = this
+        bottomNavigationView.beGone()
         root
     }
 

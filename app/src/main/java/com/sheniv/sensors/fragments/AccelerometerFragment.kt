@@ -7,15 +7,15 @@ import android.hardware.SensorManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.sheniv.sensors.R
 import com.sheniv.sensors.base.BaseFragment
+import com.sheniv.sensors.base.OneParameterBaseFragment
 import com.sheniv.sensors.databinding.FragmentAccelerometerBinding
 import com.sheniv.sensors.extentions.beGone
 import com.sheniv.sensors.extentions.bottomNavigationView
 import com.sheniv.sensors.extentions.sensorManager
 
-class AccelerometerFragment : BaseFragment<FragmentAccelerometerBinding>(), SensorEventListener {
-
-    private var mAccelerometer: Sensor? = null
+class AccelerometerFragment : OneParameterBaseFragment<FragmentAccelerometerBinding>() {
 
     override fun createViewBinding(
         inflater: LayoutInflater,
@@ -23,30 +23,19 @@ class AccelerometerFragment : BaseFragment<FragmentAccelerometerBinding>(), Sens
     ) = FragmentAccelerometerBinding.inflate(inflater, container, false)
 
     override fun FragmentAccelerometerBinding.onBindView(savedInstanceState: Bundle?) {
-        bottomNavigationView.beGone()
-        mAccelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        if (sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null) {
+            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        } else {
+            navController.popBackStack()
+            navController.navigate(R.id.unfortunatelyFragment)
+        }
     }
 
-    override fun onSensorChanged(p0: SensorEvent) {
+    override fun onSensorChanged(event: SensorEvent) {
         with(binding){
-            axisX.text = p0.values[0].toString()
-            axisY.text = p0.values[1].toString()
-            axisZ.text = p0.values[2].toString()
+            axisX.text = String.format("%.3f", event.values[0])
+            axisY.text = String.format("%.3f", event.values[1])
+            axisZ.text = String.format("%.3f", event.values[2])
         }
-    }
-
-    override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
-    }
-
-    override fun onResume() {
-        super.onResume()
-        mAccelerometer?.also {
-            sensorManager.registerListener(this, it , SensorManager.SENSOR_DELAY_NORMAL)
-        }
-    }
-
-    override fun onPause() {
-        super.onPause()
-        sensorManager.unregisterListener(this)
     }
 }

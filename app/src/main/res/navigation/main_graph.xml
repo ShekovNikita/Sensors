@@ -30,4 +30,14 @@
         android:name="com.sheniv.sensors.fragments.AmbientTemperatureFragment"
         android:label="fragment_ambient_temperature"
         tools:layout="@layout/fragment_ambient_temperature" />
+    <fragment
+        android:id="@+id/unfortunatelyFragment"
+        android:name="com.sheniv.sensors.fragments.UnfortunatelyFragment"
+        android:label="fragment_unfortunately"
+        tools:layout="@layout/fragment_unfortunately" />
+    <fragment
+        android:id="@+id/gravityFragment"
+        android:name="com.sheniv.sensors.fragments.GravityFragment"
+        android:label="fragment_gravity"
+        tools:layout="@layout/fragment_gravity" />
 </navigation>

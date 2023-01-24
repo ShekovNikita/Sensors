@@ -15,4 +15,10 @@
     <string name="sensor_light">Датчик света</string>
     <string name="sensor_accelerometer">Акселерометр</string>
     <string name="sensor_thermometer">Температура</string>
+    <string name="unfortenutely">К сожалению на вашем телефоне нет такого датчика</string>
+    <string name="about_accelerometer">Ускорение (м/с2) по трём осям</string>
+    <string name="about_light">Внешняя освещённость (лк)</string>
+    <string name="about_amb_temp">Измерение температуры окружающей среды в градусах Цельсия</string>
+    <string name="about_gravity">Измеряет силу тяжести в м/с*c</string>
+    <string name="sensor_gravity">Гравитация</string>
 </resources>
