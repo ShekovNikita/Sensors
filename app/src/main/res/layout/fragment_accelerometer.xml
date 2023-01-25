@@ -8,21 +8,24 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        style="@style/TopTextAboutSensor"
         android:text="@string/about_accelerometer"
-        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/axis_x"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/axis_x_title"
+        style="@style/Axis"
+        android:text="Ось X:"
         android:layout_marginStart="10dp"
-        android:textSize="40sp"
+        android:textColor="#00bf00"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/axis_x"
+        style="@style/ValueOfAxis"
         android:textColor="#00bf00"
         app:layout_constraintBottom_toBottomOf="@+id/axis_x_title"
         app:layout_constraintStart_toEndOf="@+id/axis_x_title"
@@ -30,33 +33,17 @@
         tools:text="2324" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/axis_x_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ось X:"
-        android:textColor="#00bf00"
-        android:layout_marginTop="10dp"
-        android:textSize="40sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text" />
-
-    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/axis_y_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Axis"
         android:text="Ось Y:"
         android:textColor="#0000bf"
-        android:textSize="40sp"
         app:layout_constraintStart_toStartOf="@+id/axis_x_title"
         app:layout_constraintTop_toBottomOf="@+id/axis_x_title" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/axis_y"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
+        style="@style/ValueOfAxis"
         android:textColor="#0000bf"
-        android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/axis_y_title"
         app:layout_constraintStart_toEndOf="@+id/axis_y_title"
         app:layout_constraintTop_toBottomOf="@+id/axis_x_title"
@@ -64,21 +51,16 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/axis_z_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Axis"
         android:text="Ось Z:"
         android:textColor="#bf0000"
-        android:textSize="40sp"
         app:layout_constraintStart_toStartOf="@+id/axis_y_title"
         app:layout_constraintTop_toBottomOf="@+id/axis_y_title" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/axis_z"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
+        style="@style/ValueOfAxis"
         android:textColor="#bf0000"
-        android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/axis_z_title"
         app:layout_constraintStart_toEndOf="@+id/axis_z_title"
         app:layout_constraintTop_toBottomOf="@+id/axis_y_title"
@@ -92,5 +74,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/axis_z_title" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

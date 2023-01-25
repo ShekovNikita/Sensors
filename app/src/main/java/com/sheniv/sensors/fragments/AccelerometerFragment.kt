@@ -17,19 +17,13 @@ import com.sheniv.sensors.extentions.sensorManager
 
 class AccelerometerFragment : OneParameterBaseFragment<FragmentAccelerometerBinding>() {
 
+    override val currentSensor: Int
+        get() = Sensor.TYPE_ACCELEROMETER
+
     override fun createViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
     ) = FragmentAccelerometerBinding.inflate(inflater, container, false)
-
-    override fun FragmentAccelerometerBinding.onBindView(savedInstanceState: Bundle?) {
-        if (sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null) {
-            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-        } else {
-            navController.popBackStack()
-            navController.navigate(R.id.unfortunatelyFragment)
-        }
-    }
 
     override fun onSensorChanged(event: SensorEvent) {
         with(binding){

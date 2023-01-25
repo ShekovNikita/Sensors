@@ -34,6 +34,15 @@ class MainFragment : BaseFragment<FragmentMainBinding>(), ChoiceSensor {
             R.string.sensor_accelerometer -> navController.navigate(R.id.accelerometer)
             R.string.sensor_thermometer -> navController.navigate(R.id.ambientTemperatureFragment)
             R.string.sensor_gravity -> navController.navigate(R.id.gravityFragment)
+            R.string.humidity -> navController.navigate(R.id.relativeHumidityFragment)
+            R.string.linear_acceleration -> navController.navigate(R.id.linearAccelerationFragment)
+            R.string.gyroscope -> navController.navigate(R.id.gyroscopeFragment)
+            R.string.magnetic_field -> navController.navigate(R.id.magneticFieldFragment)
+            R.string.orientation -> navController.navigate(R.id.orientationFragment)
+            R.string.pressure -> navController.navigate(R.id.pressureFragment)
+            R.string.proximity -> navController.navigate(R.id.proximityFragment)
+            R.string.rotation_vector -> navController.navigate(R.id.rotationVectorFragment)
+            R.string.step_counter -> navController.navigate(R.id.stepCounterFragment)
         }
     }
 }

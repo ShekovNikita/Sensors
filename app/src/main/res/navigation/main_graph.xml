@@ -40,4 +40,54 @@
         android:name="com.sheniv.sensors.fragments.GravityFragment"
         android:label="fragment_gravity"
         tools:layout="@layout/fragment_gravity" />
+    <fragment
+        android:id="@+id/gyroscopeFragment"
+        android:name="com.sheniv.sensors.fragments.GyroscopeFragment"
+        android:label="fragment_gyroscope"
+        tools:layout="@layout/fragment_gyroscope" />
+    <fragment
+        android:id="@+id/linearAccelerationFragment"
+        android:name="com.sheniv.sensors.fragments.LinearAccelerationFragment"
+        android:label="fragment_linear_acceleration"
+        tools:layout="@layout/fragment_linear_acceleration" />
+    <fragment
+        android:id="@+id/magneticFieldFragment"
+        android:name="com.sheniv.sensors.fragments.MagneticFieldFragment"
+        android:label="fragment_magnetic_field"
+        tools:layout="@layout/fragment_magnetic_field" />
+    <fragment
+        android:id="@+id/orientationFragment"
+        android:name="com.sheniv.sensors.fragments.OrientationFragment"
+        android:label="fragment_orientation"
+        tools:layout="@layout/fragment_orientation" />
+    <fragment
+        android:id="@+id/pressureFragment"
+        android:name="com.sheniv.sensors.fragments.PressureFragment"
+        android:label="fragment_pressure"
+        tools:layout="@layout/fragment_pressure" />
+    <fragment
+        android:id="@+id/proximityFragment"
+        android:name="com.sheniv.sensors.fragments.ProximityFragment"
+        android:label="fragment_proximity"
+        tools:layout="@layout/fragment_proximity" />
+    <fragment
+        android:id="@+id/relativeHumidityFragment"
+        android:name="com.sheniv.sensors.fragments.RelativeHumidityFragment"
+        android:label="fragment_relative_humidity"
+        tools:layout="@layout/fragment_relative_humidity" />
+    <fragment
+        android:id="@+id/rotationVectorFragment"
+        android:name="com.sheniv.sensors.fragments.RotationVectorFragment"
+        android:label="fragment_rotation_vector"
+        tools:layout="@layout/fragment_rotation_vector" />
+    <fragment
+        android:id="@+id/stepCounterFragment"
+        android:name="com.sheniv.sensors.fragments.StepCounterFragment"
+        android:label="fragment_step_counter"
+        tools:layout="@layout/fragment_step_counter" />
+    <fragment
+        android:id="@+id/temperatureFragment"
+        android:name="com.sheniv.sensors.fragments.TemperatureFragment"
+        android:label="fragment_temperature"
+        tools:layout="@layout/fragment_temperature" />
 </navigation>

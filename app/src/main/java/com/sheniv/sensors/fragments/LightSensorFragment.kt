@@ -19,22 +19,15 @@ import com.sheniv.sensors.extentions.sensorManager
 
 class LightSensorFragment : OneParameterBaseFragment<FragmentLightSensorBinding>() {
 
+    override val currentSensor: Int
+        get() = Sensor.TYPE_LIGHT
+
     override fun createViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
     ) = FragmentLightSensorBinding.inflate(inflater, container, false)
 
-    override fun FragmentLightSensorBinding.onBindView(savedInstanceState: Bundle?) {
-        if (sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT) != null) {
-            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
-        } else {
-            navController.popBackStack()
-            navController.navigate(R.id.unfortunatelyFragment)
-        }
-    }
-
-    override fun onSensorChanged(event: SensorEvent?) {
-        if (event != null)
-            binding.light.text = event.values[0].toString()
+    override fun onSensorChanged(event: SensorEvent) {
+            binding.value.text = event.values[0].toString()
     }
 }

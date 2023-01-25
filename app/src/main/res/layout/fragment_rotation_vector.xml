@@ -4,12 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.GravityFragment">
+    tools:context=".fragments.RotationVectorFragment">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/text"
         style="@style/TopTextAboutSensor"
-        android:text="@string/about_gravity"
+        android:text="@string/about_rotation_vector"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -17,7 +17,7 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/axis_x_title"
         style="@style/Axis"
-        android:text="Ось X:"
+        android:text="x*sin(q/2):"
         android:layout_marginStart="10dp"
         android:textColor="#00bf00"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/axis_y_title"
         style="@style/Axis"
-        android:text="Ось Y:"
+        android:text="y*sin(q/2):"
         android:textColor="#0000bf"
         app:layout_constraintStart_toStartOf="@+id/axis_x_title"
         app:layout_constraintTop_toBottomOf="@+id/axis_x_title" />
@@ -52,7 +52,7 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/axis_z_title"
         style="@style/Axis"
-        android:text="Ось Z:"
+        android:text="z*sin(q/2):"
         android:textColor="#bf0000"
         app:layout_constraintStart_toStartOf="@+id/axis_y_title"
         app:layout_constraintTop_toBottomOf="@+id/axis_y_title" />
@@ -66,6 +66,23 @@
         app:layout_constraintTop_toBottomOf="@+id/axis_y_title"
         tools:text="2324" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/axis_q_title"
+        style="@style/Axis"
+        android:text="Ось:"
+        android:textColor="#afafaf"
+        app:layout_constraintStart_toStartOf="@+id/axis_y_title"
+        app:layout_constraintTop_toBottomOf="@+id/axis_z_title" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/axis_q"
+        style="@style/ValueOfAxis"
+        android:textColor="#afafaf"
+        app:layout_constraintBottom_toBottomOf="@+id/axis_q_title"
+        app:layout_constraintStart_toEndOf="@+id/axis_q_title"
+        app:layout_constraintTop_toBottomOf="@+id/axis_z_title"
+        tools:text="2324" />
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,4 +91,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/axis_z_title" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
