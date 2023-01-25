@@ -11,7 +11,8 @@ import com.sheniv.sensors.extentions.beGone
 import com.sheniv.sensors.extentions.beVisible
 
 class SensorAdapter(
-    private val listSensor: List<Sensor>
+    private val listSensor: List<Sensor>,
+    private val searchInGoogle: SearchInGoogle
 ): RecyclerView.Adapter<SensorAdapter.SensorViewHolder>() {
 
     inner class SensorViewHolder(item: View): RecyclerView.ViewHolder(item) {
@@ -26,6 +27,10 @@ class SensorAdapter(
             power.text = sensor.power.toString()
             minDelay.text = sensor.minDelay.toString()
             stringType.text = sensor.stringType
+
+            search.setOnClickListener{
+                searchInGoogle.search(sensor.name, sensor.vendor)
+            }
 
             checkboxSetting.setOnCheckedChangeListener { _, checked ->
                 if (checked) group.beVisible()

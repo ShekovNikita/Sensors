@@ -1,21 +1,16 @@
 package com.sheniv.sensors.fragments
 
+import android.graphics.Color
 import android.hardware.Sensor
 import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
-import android.hardware.SensorManager
+import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import com.sheniv.sensors.R
-import com.sheniv.sensors.base.BaseFragment
 import com.sheniv.sensors.base.OneParameterBaseFragment
 import com.sheniv.sensors.databinding.FragmentLightSensorBinding
-import com.sheniv.sensors.extentions.beGone
-import com.sheniv.sensors.extentions.bottomNavigationView
-import com.sheniv.sensors.extentions.sensorManager
 
 class LightSensorFragment : OneParameterBaseFragment<FragmentLightSensorBinding>() {
 
@@ -27,7 +22,27 @@ class LightSensorFragment : OneParameterBaseFragment<FragmentLightSensorBinding>
         container: ViewGroup?
     ) = FragmentLightSensorBinding.inflate(inflater, container, false)
 
+    override fun FragmentLightSensorBinding.onBindView(savedInstanceState: Bundle?) {
+        super.checkingSensor(currentSensor)
+        val sensorMax = sensor?.maximumRange
+        if (sensorMax != null){
+            circularProgressBar.progressMax = sensorMax
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onSensorChanged(event: SensorEvent) {
-            binding.value.text = event.values[0].toString()
+        val values = event.values[0]
+        val color = sensor?.maximumRange?.div(256f)
+        val colorSet = (values/ color!!).toInt()
+
+        with(binding){
+            circularProgressBar.apply {
+                setProgressWithAnimation(values)
+            }
+            layout.setBackgroundColor(Color.argb(255, colorSet, colorSet, 0))
+            value.setTextColor(Color.argb(255, 255, 255 - colorSet, 200))
+            value.text = values.toInt().toString()
+        }
     }
 }

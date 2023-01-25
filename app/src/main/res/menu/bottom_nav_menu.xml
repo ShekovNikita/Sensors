@@ -9,4 +9,9 @@
         android:id="@+id/navigation_all_sensors"
         android:icon="@android:drawable/ic_menu_sort_by_size"
         android:title="@string/all_sensors"/>
+
+    <item
+        android:id="@+id/navigation_help"
+        android:icon="@drawable/ic_baseline_attach_money_24"
+        android:title="@string/help"/>
 </menu>

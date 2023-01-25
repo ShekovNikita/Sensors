@@ -23,11 +23,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/value"
-        style="@style/SingleParameter"
-        tools:text="435"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/materialTextView2"
+        style="@style/TopTextAboutSensor"
+        android:text="@string/about_step_counter_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/value"
+        style="@style/SingleParameter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialTextView2"
+        tools:text="435" />
 </androidx.constraintlayout.widget.ConstraintLayout>

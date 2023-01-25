@@ -90,4 +90,14 @@
         android:name="com.sheniv.sensors.fragments.TemperatureFragment"
         android:label="fragment_temperature"
         tools:layout="@layout/fragment_temperature" />
+    <fragment
+        android:id="@+id/compassFragment"
+        android:name="com.sheniv.sensors.fragments.CompassFragment"
+        android:label="fragment_compass"
+        tools:layout="@layout/fragment_compass" />
+    <fragment
+        android:id="@+id/navigation_help"
+        android:name="com.sheniv.sensors.fragments.HelpFragment"
+        android:label="fragment_help"
+        tools:layout="@layout/fragment_help" />
 </navigation>

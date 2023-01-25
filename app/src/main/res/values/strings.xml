@@ -35,9 +35,21 @@
     <string name="about_magnetic_field">Внешнее магнитное поле (мкТл)</string>
     <string name="about_orientation">Измеряет градусы вращения устройства вокруг всех трех физических осей</string>
     <string name="about_pressure">Измеряет давление окружающего воздуха в гПа или мбар</string>
-    <string name="about_proximity">Измеряет близость объекта относительно экрана устройства(см)</string>
+    <string name="about_proximity">Используется для отключения дисплея во время телефонного разговора\n(Два значения: только ближе или дальше 5 см)</string>
     <string name="about_rotation_vector">Измеряет ориентацию устройства, предоставляя три элемента вектора вращения устройства</string>
     <string name="about_temperature">Измерение температуры в градусах Цельсия (устаревший)</string>
     <string name="step_counter">Шагомер</string>
     <string name="about_step_counter">Измеряет количество пройденных шагов</string>
+    <string name="maxValue">Максимальное значение: </string>
+    <string name="about_step_counter_text">Пройдено шагов с последней перезагрузки системы\n(Системная задержка отсчета - 10 секунд)</string>
+    <string name="compass">Компас</string>
+    <string name="about_compass">Отклонение от севера:</string>
+    <string name="help">Помощь</string>
+    <string name="about_developer">О разработчике</string>
+    <string name="cooperation">Для сотрудничества с разработчиком\nпросто напишите (email)</string>
+    <string name="write">Написать</string>
+    <string name="ads">Посмотрите пожалуйста рекламу\n(так вы поможете разработчику)</string>
+    <string name="watch_ads">Посмотреть рекламу</string>
+    <string name="donation">Помощь</string>
+    <string name="other_developer_apps">Другие приложения разработчика</string>
 </resources>

@@ -18,8 +18,7 @@ abstract class OneParameterBaseFragment<VIEW_BINDING : ViewBinding> : BaseFragme
         checkingSensor(currentSensor)
     }
 
-    private fun checkingSensor(a: Int){
-        //val currentSensor: Int
+    fun checkingSensor(a: Int){
         if (sensorManager.getDefaultSensor(a) != null) {
             sensor = sensorManager.getDefaultSensor(a)
         } else {

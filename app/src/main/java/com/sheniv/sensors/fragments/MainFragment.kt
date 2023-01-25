@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.sheniv.sensors.R
 import com.sheniv.sensors.adapters.AllSensorsAdapter
 import com.sheniv.sensors.adapters.ChoiceSensor
@@ -24,7 +25,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(), ChoiceSensor {
 
     override fun FragmentMainBinding.onBindView(savedInstanceState: Bundle?) {
         bottomNavigationView.beVisible()
-        recyclerType.layoutManager = GridLayoutManager(context, 3)
+        recyclerType.layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
         recyclerType.adapter = AllSensorsAdapter(AllSensors().getAllSensors(), this@MainFragment)
     }
 
@@ -43,6 +44,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(), ChoiceSensor {
             R.string.proximity -> navController.navigate(R.id.proximityFragment)
             R.string.rotation_vector -> navController.navigate(R.id.rotationVectorFragment)
             R.string.step_counter -> navController.navigate(R.id.stepCounterFragment)
+            R.string.compass -> navController.navigate(R.id.compassFragment)
         }
     }
 }

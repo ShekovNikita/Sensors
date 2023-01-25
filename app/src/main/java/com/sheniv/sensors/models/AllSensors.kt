@@ -17,6 +17,7 @@ class AllSensors {
     private val sensorProximity = SensorItem(R.drawable.proximity, R.string.proximity)
     private val sensorRotationVector = SensorItem(R.drawable.rotation_vector, R.string.rotation_vector)
     private val sensorStepCounter = SensorItem(R.drawable.step_counter, R.string.step_counter)
+    private val compass = SensorItem(R.drawable.compass, R.string.compass)
 
     fun getAllSensors(): List<SensorItem> {
         val listSensor = arrayListOf<SensorItem>()
@@ -33,6 +34,7 @@ class AllSensors {
         listSensor.add(sensorProximity)
         listSensor.add(sensorRotationVector)
         listSensor.add(sensorStepCounter)
+        listSensor.add(compass)
 
         return listSensor
     }

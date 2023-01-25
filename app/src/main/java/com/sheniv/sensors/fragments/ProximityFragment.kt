@@ -1,5 +1,6 @@
 package com.sheniv.sensors.fragments
 
+import android.graphics.Color
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.os.Bundle
@@ -17,7 +18,19 @@ class ProximityFragment : OneParameterBaseFragment<FragmentProximityBinding>() {
     ) = FragmentProximityBinding.inflate(inflater, container, false)
 
     override fun onSensorChanged(event: SensorEvent) {
-        binding.value.text = event.values[0].toString()
+        with(binding) {
+            if (event.values[0] >= 5) {
+                value.text = "> 5"
+                layout.setBackgroundColor(Color.argb(255, 255, 255, 255))
+                value.setTextColor(Color.argb(255,0,0,0))
+                materialTextView.setTextColor(Color.argb(255,0,0,0))
+            } else {
+                value.text = "< 5"
+                layout.setBackgroundColor(Color.argb(255, 0, 0, 0))
+                value.setTextColor(Color.argb(255,255,255,255))
+                materialTextView.setTextColor(Color.argb(255,255,255,255))
+            }
+        }
     }
 
     override val currentSensor: Int

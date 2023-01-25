@@ -1,10 +1,9 @@
 package com.sheniv.sensors
 
 import android.content.Context
-import android.hardware.Sensor
 import android.hardware.SensorManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_main, R.id.navigation_all_sensors
+                R.id.navigation_main, R.id.navigation_all_sensors, R.id.navigation_help
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
