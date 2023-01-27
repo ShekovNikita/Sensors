@@ -100,4 +100,9 @@
         android:name="com.sheniv.sensors.fragments.HelpFragment"
         android:label="fragment_help"
         tools:layout="@layout/fragment_help" />
+    <fragment
+        android:id="@+id/levelFragment"
+        android:name="com.sheniv.sensors.fragments.LevelFragment"
+        android:label="fragment_level"
+        tools:layout="@layout/fragment_level" />
 </navigation>

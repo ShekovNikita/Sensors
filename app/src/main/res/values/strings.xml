@@ -52,4 +52,5 @@
     <string name="watch_ads">Посмотреть рекламу</string>
     <string name="donation">Помощь</string>
     <string name="other_developer_apps">Другие приложения разработчика</string>
+    <string name="level">Уровень</string>
 </resources>

@@ -18,6 +18,7 @@ class HelpFragment : BaseFragment<FragmentHelpBinding>() {
 
     override fun FragmentHelpBinding.onBindView(savedInstanceState: Bundle?) {
         bottomNavigationView.beVisible()
+        val s = "https://shekovnikitacompany.blogspot.com/2023/01/sensors.html"
     }
 
 }

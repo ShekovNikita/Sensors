@@ -4,6 +4,8 @@ import com.sheniv.sensors.R
 
 class AllSensors {
 
+    private val listSensor = arrayListOf<SensorItem>()
+
     private val sensorLight = SensorItem(R.drawable.light_icon, R.string.sensor_light)
     private val sensorAccelerometer = SensorItem(R.drawable.gravity, R.string.sensor_accelerometer)
     private val sensorAmbientTemperature = SensorItem(R.drawable.temperature, R.string.sensor_thermometer)
@@ -18,9 +20,9 @@ class AllSensors {
     private val sensorRotationVector = SensorItem(R.drawable.rotation_vector, R.string.rotation_vector)
     private val sensorStepCounter = SensorItem(R.drawable.step_counter, R.string.step_counter)
     private val compass = SensorItem(R.drawable.compass, R.string.compass)
+    private val level = SensorItem(R.drawable.level_icon, R.string.level)
 
-    fun getAllSensors(): List<SensorItem> {
-        val listSensor = arrayListOf<SensorItem>()
+    private fun addAllSensors() {
         listSensor.add(sensorLight)
         listSensor.add(sensorAccelerometer)
         listSensor.add(sensorAmbientTemperature)
@@ -35,7 +37,11 @@ class AllSensors {
         listSensor.add(sensorRotationVector)
         listSensor.add(sensorStepCounter)
         listSensor.add(compass)
+        listSensor.add(level)
+    }
 
+    fun getAllSensors(): ArrayList<SensorItem>{
+        addAllSensors()
         return listSensor
     }
 }
