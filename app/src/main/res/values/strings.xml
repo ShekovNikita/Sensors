@@ -53,4 +53,9 @@
     <string name="donation">Помощь</string>
     <string name="other_developer_apps">Другие приложения разработчика</string>
     <string name="level">Уровень</string>
+    <string name="this_is_not_difficult">Это не сложно</string>
+    <string name="about_this_is_not_difficult">Данная игра распространяется абсолютно бесплатно, поэтому, если вы хотите поддержать разработчика, просмотрите пожалуйста рекламу нажав на кнопку \"Посмотреть рекламу\", и оставьте отзыв или оценку в Play Market нажав на кнопку \"Другие приложения разработчика\" и выбрав игру. Вам не сложно, а мне приятно)\nВсем удачи!</string>
+    <string name="cooperation_word">Сотрудничество</string>
+    <string name="thank_you_for_watching_ads">Спасибо за просмотр рекламы</string>
+    <string name="confidencial">Политика конфиденциальности</string>
 </resources>
