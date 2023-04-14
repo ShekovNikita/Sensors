@@ -18,7 +18,7 @@
         android:layout_height="0dp"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        android:src="@drawable/atmosphere_pressure"
+        android:src="@drawable/light"
         app:layout_constraintBottom_toTopOf="@+id/value"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

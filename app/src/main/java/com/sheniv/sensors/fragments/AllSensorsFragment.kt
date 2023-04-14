@@ -14,6 +14,7 @@ import com.sheniv.sensors.base.BaseFragment
 import com.sheniv.sensors.databinding.FragmentAllSensorsBinding
 import com.sheniv.sensors.extentions.beVisible
 import com.sheniv.sensors.extentions.bottomNavigationView
+import com.sheniv.sensors.extentions.deviceSensors
 import com.sheniv.sensors.extentions.sensorManager
 
 class AllSensorsFragment : BaseFragment<FragmentAllSensorsBinding>(), SearchInGoogle {
@@ -24,7 +25,6 @@ class AllSensorsFragment : BaseFragment<FragmentAllSensorsBinding>(), SearchInGo
 
     override fun FragmentAllSensorsBinding.onBindView(savedInstanceState: Bundle?) {
         bottomNavigationView.beVisible()
-        val deviceSensors: List<Sensor> = sensorManager.getSensorList(Sensor.TYPE_ALL)
 
         recyclerSensor.adapter = SensorAdapter(deviceSensors, this@AllSensorsFragment)
     }
