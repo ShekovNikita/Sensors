@@ -13,14 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:defaultNavHost="true"
-        android:paddingBottom="56dp"
+        android:layout_marginBottom="72dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/main_graph" />
 
-    <np.com.susanthapa.curved_bottom_navigation.CurvedBottomNavigationView
+    <!--<np.com.susanthapa.curved_bottom_navigation.CurvedBottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="172dp"
@@ -28,5 +28,15 @@
         app:cbn_bg="#E8E8EA"
         app:cbn_fabBg="#414E6E"
         app:cbn_selectedColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent" />-->
+
+    <com.sheniv.sensors.Fraq
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cbn_animDuration="0"
+        app:cbn_bg="#E8E8EA"
+        app:cbn_fabBg="#414E6E"
+        app:cbn_selectedColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

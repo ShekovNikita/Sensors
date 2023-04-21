@@ -1,12 +1,9 @@
 package com.sheniv.sensors.fragments
 
 import android.content.Intent
-import android.hardware.Sensor
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import com.sheniv.sensors.adapters.SearchInGoogle
 import com.sheniv.sensors.adapters.SensorAdapter
@@ -14,10 +11,9 @@ import com.sheniv.sensors.base.BaseFragment
 import com.sheniv.sensors.databinding.FragmentAllSensorsBinding
 import com.sheniv.sensors.extentions.beVisible
 import com.sheniv.sensors.extentions.bottomNavigationView
-import com.sheniv.sensors.extentions.deviceSensors
-import com.sheniv.sensors.extentions.sensorManager
 
 class AllSensorsFragment : BaseFragment<FragmentAllSensorsBinding>(), SearchInGoogle {
+
     override fun createViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -26,7 +22,8 @@ class AllSensorsFragment : BaseFragment<FragmentAllSensorsBinding>(), SearchInGo
     override fun FragmentAllSensorsBinding.onBindView(savedInstanceState: Bundle?) {
         bottomNavigationView.beVisible()
 
-        recyclerSensor.adapter = SensorAdapter(deviceSensors, this@AllSensorsFragment)
+        recyclerSensor.adapter = SensorAdapter(this@AllSensorsFragment)
+
     }
 
     override fun search(name: String, vendor: String) {
@@ -34,6 +31,4 @@ class AllSensorsFragment : BaseFragment<FragmentAllSensorsBinding>(), SearchInGo
         val intent = Intent(Intent.ACTION_VIEW, uri)
         startActivity(intent)
     }
-
-
 }

@@ -5,60 +5,98 @@
     style="@style/Widget.Material3.CardView.Elevated"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="4dp"
     android:layout_marginHorizontal="8dp"
-    android:layout_marginTop="4dp">
+    android:layout_marginTop="6dp"
+    android:backgroundTint="#F5F5F5"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="2dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_margin="8dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true">
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            app:constraint_referenced_ids="vendor_title, search, vendor, version, version_title, resolution, resolution_title, minDelay, minDelay_title, maxRange, maxRange_title, type, type_title, stringType, stringType_title, power, power_title"/>
+            app:constraint_referenced_ids="vendor_title, search_icon, divider, search, vendor, version, version_title, resolution, resolution_title, minDelay, minDelay_title, maxRange, maxRange_title, type, type_title, stringType, stringType_title, power, power_title" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkbox_setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:button="@drawable/checkbox_setting_selector"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="24dp"
             android:checked="false"
+            app:buttonCompat="@drawable/arrow_drop_down"
+            app:buttonTint="#414E6E"
+            app:layout_constraintBottom_toBottomOf="@+id/name"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="@+id/name" />
 
-        <ImageButton
+        <TextView
             android:id="@+id/search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@null"
-            android:padding="12dp"
+            android:layout_marginEnd="4dp"
+            android:text="@string/learn_more"
+            android:textColor="#80414E6E"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/search_icon"
+            app:layout_constraintEnd_toStartOf="@+id/search_icon"
+            app:layout_constraintTop_toTopOf="@+id/search_icon" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/search_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             android:src="@drawable/ic_baseline_search_24"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/checkbox_setting"
-            app:layout_constraintStart_toStartOf="@+id/checkbox_setting"
-            app:layout_constraintTop_toBottomOf="@+id/checkbox_setting" />
+            app:layout_constraintTop_toBottomOf="@+id/stringType_title" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_item"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            tools:src="@drawable/noname_small"
+            app:layout_constraintBottom_toBottomOf="@+id/name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/name" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:textSize="20sp"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginHorizontal="16dp"
             android:ellipsize="middle"
-            app:layout_constraintBottom_toBottomOf="@+id/checkbox_setting"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/checkbox_setting"
+            android:gravity="center_vertical"
+            android:textColor="#414E6E"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@+id/checkbox_setting"
+            app:layout_constraintStart_toEndOf="@+id/image_item"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Имя" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:dividerColor="#80414E6E"
+            app:layout_constraintEnd_toEndOf="@+id/checkbox_setting"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/vendor_title"
+            style="@style/item_info_about_sensor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_marginTop="16dp"
             android:text="@string/vendor"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -68,6 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/vendor_title"
             app:layout_constraintStart_toEndOf="@+id/vendor_title"
             app:layout_constraintTop_toTopOf="@+id/vendor_title"
@@ -75,9 +114,9 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/version_title"
+            style="@style/item_info_about_sensor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:text="@string/version"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vendor_title" />
@@ -87,6 +126,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/version_title"
             app:layout_constraintStart_toEndOf="@+id/version_title"
             app:layout_constraintTop_toTopOf="@+id/version_title"
@@ -94,9 +134,9 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/type_title"
+            style="@style/item_info_about_sensor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:text="@string/type"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/version_title" />
@@ -106,6 +146,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/type_title"
             app:layout_constraintStart_toEndOf="@+id/type_title"
             app:layout_constraintTop_toTopOf="@+id/type_title"
@@ -113,9 +154,9 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/maxRange_title"
+            style="@style/item_info_about_sensor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:text="@string/maxRange"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/type_title" />
@@ -125,6 +166,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/maxRange_title"
             app:layout_constraintStart_toEndOf="@+id/maxRange_title"
             app:layout_constraintTop_toTopOf="@+id/maxRange_title"
@@ -132,9 +174,9 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/resolution_title"
+            style="@style/item_info_about_sensor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:text="@string/resolution"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/maxRange_title" />
@@ -144,6 +186,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/resolution_title"
             app:layout_constraintStart_toEndOf="@+id/resolution_title"
             app:layout_constraintTop_toTopOf="@+id/resolution_title"
@@ -151,9 +194,9 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/power_title"
+            style="@style/item_info_about_sensor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:text="@string/power"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/resolution_title" />
@@ -163,6 +206,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/power_title"
             app:layout_constraintStart_toEndOf="@+id/power_title"
             app:layout_constraintTop_toTopOf="@+id/power_title"
@@ -170,9 +214,9 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/minDelay_title"
+            style="@style/item_info_about_sensor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:text="@string/minDelay"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/power_title" />
@@ -182,6 +226,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/minDelay_title"
             app:layout_constraintStart_toEndOf="@+id/minDelay_title"
             app:layout_constraintTop_toTopOf="@+id/minDelay_title"
@@ -189,9 +234,9 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/stringType_title"
+            style="@style/item_info_about_sensor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:text="@string/stringType"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/minDelay_title" />
@@ -201,6 +246,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/stringType_title"
             app:layout_constraintStart_toEndOf="@+id/stringType_title"
             app:layout_constraintTop_toTopOf="@+id/stringType_title"

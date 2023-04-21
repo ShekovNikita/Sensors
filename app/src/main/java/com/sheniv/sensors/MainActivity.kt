@@ -5,20 +5,14 @@ import android.hardware.Sensor
 import android.hardware.SensorManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.anjlab.android.iab.v3.BillingProcessor
 import com.anjlab.android.iab.v3.PurchaseInfo
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
-import com.google.android.material.bottomappbar.BottomAppBar
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.shape.EdgeTreatment
-import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.install.model.AppUpdateType
@@ -55,14 +49,20 @@ class MainActivity : AppCompatActivity(), BillingProcessor.IBillingHandler {
         checkUpdate()
 
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        deviceSensors = sensorManager.getSensorList(Sensor.TYPE_ALL)
+        deviceSensors = convertSensor(sensorManager.getSensorList(Sensor.TYPE_ALL))
     }
 
     private fun checkUpdate() {
         appUpdateManager?.appUpdateInfo?.addOnSuccessListener { updateInfo ->
             if (updateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-                && updateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)){
-                appUpdateManager?.startUpdateFlowForResult(updateInfo, AppUpdateType.IMMEDIATE, this, REQUEST_CODE)
+                && updateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)
+            ) {
+                appUpdateManager?.startUpdateFlowForResult(
+                    updateInfo,
+                    AppUpdateType.IMMEDIATE,
+                    this,
+                    REQUEST_CODE
+                )
 
             }
         }
@@ -75,8 +75,13 @@ class MainActivity : AppCompatActivity(), BillingProcessor.IBillingHandler {
 
     private fun inProgressUpdate() {
         appUpdateManager?.appUpdateInfo?.addOnSuccessListener { updateInfo ->
-            if (updateInfo.updateAvailability() == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS){
-                appUpdateManager?.startUpdateFlowForResult(updateInfo, AppUpdateType.IMMEDIATE, this, REQUEST_CODE)
+            if (updateInfo.updateAvailability() == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) {
+                appUpdateManager?.startUpdateFlowForResult(
+                    updateInfo,
+                    AppUpdateType.IMMEDIATE,
+                    this,
+                    REQUEST_CODE
+                )
             }
         }
     }
@@ -85,7 +90,8 @@ class MainActivity : AppCompatActivity(), BillingProcessor.IBillingHandler {
     private fun bottomNavigation() {
         //val navView = binding.navView
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         val navController = navHostFragment.navController
         //val navController = findNavController(R.id.fragment)
         val appBarConfiguration = AppBarConfiguration(
@@ -106,7 +112,7 @@ class MainActivity : AppCompatActivity(), BillingProcessor.IBillingHandler {
                 R.id.navigation_all_sensors
             ),
             CbnMenuItem(
-                R.drawable.ic_baseline_info_24,
+                R.drawable.ic_outline_info_24,
                 R.drawable.avd_info,
                 R.id.navigation_help
             )
@@ -175,7 +181,7 @@ class MainActivity : AppCompatActivity(), BillingProcessor.IBillingHandler {
     }
 
     override fun onProductPurchased(productId: String, details: PurchaseInfo?) {
-        bp?.consumePurchaseAsync(productId, object : BillingProcessor.IPurchasesResponseListener{
+        bp?.consumePurchaseAsync(productId, object : BillingProcessor.IPurchasesResponseListener {
             override fun onPurchasesSuccess() {
             }
 

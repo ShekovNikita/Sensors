@@ -6,12 +6,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.AllSensorsFragment">
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView6"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:textColor="#414E6E"
+        android:text="Список сенсоров"
+        android:textSize="22sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_sensor"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layoutAnimation="@anim/layout_anim_list"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialTextView6"
         tools:listitem="@layout/item_sensor" />
 </androidx.constraintlayout.widget.ConstraintLayout>

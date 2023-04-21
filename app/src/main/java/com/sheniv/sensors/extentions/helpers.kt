@@ -10,17 +10,19 @@ import androidx.fragment.app.Fragment
 import com.anjlab.android.iab.v3.BillingProcessor
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.sheniv.sensors.Fraq
+import com.sheniv.sensors.models.SensorInner
 import np.com.susanthapa.curved_bottom_navigation.CurvedBottomNavigationView
 
 lateinit var sensorManager: SensorManager
-lateinit var bottomNavigationView: CurvedBottomNavigationView
+lateinit var bottomNavigationView: Fraq
 const val AD_UNIT_ID = "ca-app-pub-2440252298457934/8027979890"
 const val BILLING_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgB6sQu/cyeLXLEj1iPP/xtUtugV6MtZuWUfx1OE6eS9w4JQ4abTh5Ip5Vvggn9wuVCgeDcHj1koKvs+w38pCEzz61GpXZ+v8St+rIzPZm4zbYPVU1itFO/68R/w/R/ttEFOg+EaKQsBCpuPwG5WpZiF6nGCJF8+P9n+5wrsJKt1hlkD8a11HBZMPpRXmrvpsCyiQiBwgjWGtqj3jvavHuaMZuXpouTn0YsqdswgQplkneyqqiTqwW1p7xNPb/BG3fH8//FNv49Yu62orgvgY58UgaMWisqF4CKW8mOhcQ0JzBjwQQW5B5Dd+jDqumRzumkMUDHWA923DVniIxgOoeQIDAQAB"
 
 var mRewardedAd: RewardedAd? = null
 var bp: BillingProcessor? = null
 
-lateinit var deviceSensors: List<Sensor>
+lateinit var deviceSensors: List<SensorInner>
 
 fun View.beVisible() {
     this.visibility = View.VISIBLE
@@ -36,4 +38,24 @@ fun View.beInvisible() {
 
 fun Activity.showToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+}
+
+fun convertSensor(sensors: List<Sensor>) : List<SensorInner> {
+    val listSensors = arrayListOf<SensorInner>()
+    for (i in sensors) {
+        listSensors.add(
+            SensorInner(
+                name = i.name,
+                vendor = i.vendor,
+                version = i.version,
+                type = i.type,
+                maximumRange = i.maximumRange,
+                resolution = i.resolution,
+                power = i.power,
+                minDelay = i.minDelay,
+                stringType = i.stringType
+            )
+        )
+    }
+    return listSensors
 }

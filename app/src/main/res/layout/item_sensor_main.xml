@@ -25,6 +25,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         tools:text="Cdtnfgdf"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textSize="14sp"
         app:fontFamily="@font/roboto"
         app:layout_constraintBottom_toBottomOf="parent"
