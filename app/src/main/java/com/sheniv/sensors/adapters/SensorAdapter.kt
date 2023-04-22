@@ -10,6 +10,7 @@ import com.sheniv.sensors.extentions.beGone
 import com.sheniv.sensors.extentions.beVisible
 import com.sheniv.sensors.extentions.deviceSensors
 import com.sheniv.sensors.models.SensorInner
+import java.util.*
 
 class SensorAdapter(
     //private val listSensor: List<SensorInner>,
@@ -19,7 +20,9 @@ class SensorAdapter(
     inner class SensorViewHolder(item: View) : RecyclerView.ViewHolder(item) {
         private val binding = ItemSensorBinding.bind(item)
         fun bind(sensor: SensorInner, pos: Int) = with(binding) {
-            name.text = sensor.name
+            val rightName = sensor.name
+            name.text = rightName.substring(0,1).uppercase() + rightName.substring(1).lowercase()
+
 
             search.setOnClickListener {
                 searchInGoogle.search(sensor.name, sensor.vendor)
@@ -59,6 +62,7 @@ class SensorAdapter(
                 } else {
                     qq.animate().rotation(0f).duration = 400L
                     group.beGone()
+                    notifyItemChanged(pos)
                 }
             }
         }
