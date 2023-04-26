@@ -34,9 +34,10 @@
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cbn_animDuration="0"
+        app:cbn_animDuration="300"
         app:cbn_bg="#E8E8EA"
-        app:cbn_fabBg="#414E6E"
+        app:cbn_fabBg="@color/color_top_text"
         app:cbn_selectedColor="@color/white"
+        app:cbn_unSelectedColor="@color/color_top_text"
         app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

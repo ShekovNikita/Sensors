@@ -88,12 +88,10 @@ class MainActivity : AppCompatActivity(), BillingProcessor.IBillingHandler {
 
 
     private fun bottomNavigation() {
-        //val navView = binding.navView
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         val navController = navHostFragment.navController
-        //val navController = findNavController(R.id.fragment)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_main, R.id.navigation_all_sensors, R.id.navigation_help

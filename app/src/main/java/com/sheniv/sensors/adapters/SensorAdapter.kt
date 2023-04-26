@@ -43,6 +43,7 @@ class SensorAdapter(
                     13 -> R.drawable.temperature_small
                     18, 19 -> R.drawable.step_counter_small
                     65544 -> R.drawable.phone_call_small
+                    65538 -> R.drawable.hall_small
                     else -> R.drawable.noname_small
                 }
             )

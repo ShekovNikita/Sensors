@@ -13,6 +13,7 @@
         android:gravity="center"
         android:textColor="#414E6E"
         android:text="Список сенсоров"
+        android:paddingTop="6dp"
         android:textSize="22sp"
         app:layout_constraintTop_toTopOf="parent" />
 

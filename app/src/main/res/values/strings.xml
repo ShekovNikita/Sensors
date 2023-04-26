@@ -60,5 +60,7 @@
     <string name="confidencial">Политика конфиденциальности</string>
     <string name="sensors"><u>Sensors</u></string>
     <string name="learn_more"><u>Узнать больше</u></string>
-    <string name="leave_feedback"><u>Оценить</u></string>
+    <string name="leave_feedback"><u>Оставить отзыв</u></string>
+    <string name="question">\ ?</string>
+    <string name="thanks">Это приложение распространяется бесплатно, если вы хотите поблагодарить разработчика, вы можете посмотреть рекламу или оставить денежное дарение.</string>
 </resources>
