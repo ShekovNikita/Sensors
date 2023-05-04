@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import com.google.android.gms.common.util.Hex
 import com.sheniv.sensors.R
 import com.sheniv.sensors.base.OneParameterBaseFragment
 import com.sheniv.sensors.databinding.FragmentLightSensorBinding
@@ -32,17 +33,21 @@ class LightSensorFragment : OneParameterBaseFragment<FragmentLightSensorBinding>
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onSensorChanged(event: SensorEvent) {
-        val values = event.values[0]
-        val color = sensor?.maximumRange?.div(256f)
-        val colorSet = (values/ color!!).toInt()
+        val values = event.values[0].toInt()
 
         with(binding){
-            circularProgressBar.apply {
-                setProgressWithAnimation(values)
+            when (values.toInt()){
+                in 0 .. 500 -> { imageLamp.setImageResource(R.drawable.light_low) }
+                in 500 .. 1000 -> { imageLamp.setImageResource(R.drawable.light_good) }
+                in 1000 .. 30000 -> { imageLamp.setImageResource(R.drawable.light_high) }
             }
-            layout.setBackgroundColor(Color.argb(255, colorSet, colorSet, 0))
-            value.setTextColor(Color.argb(255, 255, 255 - colorSet, 200))
-            value.text = values.toInt().toString()
+            if (values < 1000) {
+                val g = 209 - values / 26
+                val b = 115 - values / 9
+
+                circularProgressBar.progressBarColor = Color.argb(160, 255, g, b)
+            }
+            value.text = "$values lx"
         }
     }
 }

@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import com.google.android.gms.ads.*
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.play.core.review.ReviewManagerFactory
 import com.sheniv.sensors.MainActivity
 import com.sheniv.sensors.R
 import com.sheniv.sensors.base.BaseFragment
@@ -52,8 +53,15 @@ class HelpFragment : BaseFragment<FragmentHelpBinding>() {
             dialogAboutAd()
         }
 
-        feedback.setOnClickListener {
+        feedback.setOnClickListener { reviewOnPlayMarket() }
+    }
 
+    private fun reviewOnPlayMarket(){
+        val reviewManger = ReviewManagerFactory.create(requireActivity())
+        reviewManger.requestReviewFlow().addOnCompleteListener{
+            if (it.isSuccessful){
+                reviewManger.launchReviewFlow(requireActivity(), it.result)
+            }
         }
     }
 
@@ -68,6 +76,7 @@ class HelpFragment : BaseFragment<FragmentHelpBinding>() {
             .setView(dialogBinding)
             .create()
         alertDialog.show()
+        alertDialog.window?.setDimAmount(0.8f)
         alertDialog.window?.setLayout(width, height)
 
         val btn_ads = dialogBinding.findViewById<Button>(R.id.btn_ads)

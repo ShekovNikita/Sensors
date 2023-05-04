@@ -11,6 +11,8 @@ import androidx.viewbinding.ViewBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.sheniv.sensors.MainActivity
 import com.sheniv.sensors.R
+import com.sheniv.sensors.extentions.beGone
+import com.sheniv.sensors.extentions.bottomNavigationView
 import com.sheniv.sensors.extentions.bp
 import com.sheniv.sensors.extentions.sensorManager
 
@@ -22,6 +24,7 @@ abstract class OneParameterBaseFragment<VIEW_BINDING : ViewBinding> : BaseFragme
 
     override fun VIEW_BINDING.onBindView(savedInstanceState: Bundle?) {
         checkingSensor(currentSensor)
+        bottomNavigationView.beGone()
     }
 
     fun checkingSensor(a: Int){
@@ -44,6 +47,7 @@ abstract class OneParameterBaseFragment<VIEW_BINDING : ViewBinding> : BaseFragme
             .setView(dialogBinding)
             .create()
         alertDialog.show()
+        alertDialog.window?.setDimAmount(0.8f)
         alertDialog.window?.setLayout(width, height)
 
         val btn_exit = dialogBinding.findViewById<ImageView>(R.id.btn_close_dialog)
